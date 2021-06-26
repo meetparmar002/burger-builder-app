@@ -1,0 +1,10 @@
+.Price{
+    width: 37%;
+    text-align:center;
+    display:block;
+    padding:5px;
+    margin: auto;
+    box-shadow:1px solid #ccc;
+    background-color:rgb(252, 198, 118);
+    color:blue;
+}

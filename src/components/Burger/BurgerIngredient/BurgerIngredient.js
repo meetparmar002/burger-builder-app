@@ -15,7 +15,7 @@ export default class BurgerIngredient extends Component {
                                 <div className={classes.Seeds2}></div>
                             </div>);
                 break;
-            case('mead'):
+            case('meat'):
                 ingredient=<div className={classes.Meat}></div>;
                 break;
             case('cheese'):

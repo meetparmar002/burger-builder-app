@@ -1,0 +1,83 @@
+.schedule{
+/* position: absolute; */
+width: 254px;
+height: 47px;
+left: 110px;
+top: 230px;
+margin: 7% auto;
+padding:auto;
+
+text-align: center;
+font-family: Merriweather;
+font-style: normal;
+font-weight: normal;
+font-size: 35px;
+line-height: 44px;
+
+color: #393EAC;
+}
+.schedule-box{
+position: absolute;
+width: 286px;
+height: 86px;
+left: 11px;
+top: 208px;
+
+background: #DEAF55;
+border: 3px solid #F56363;
+box-sizing: border-box;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 52px;
+}
+.container{
+/* position: relative; */
+width: 1440px;
+height: 800px;
+
+background: #6E6C88;
+}
+.container2{
+
+    position: absolute;
+    width: 1076px;
+    height: 800px;
+    left: 364px;
+    top: 0px;
+    
+    background: #FFFBA7;
+}
+.schedule-icon{
+position: absolute;
+left: 2.71%;
+right: 94.65%;
+top: 29.38%;
+bottom: 65.88%;
+}
+.resource-box{
+position: absolute;
+width: 286px;
+height: 86px;
+left: 11px;
+top: 304px;
+
+background: #DEAF55;
+border: 3px solid #F56363;
+box-sizing: border-box;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 52px;
+}
+.resource{
+/* position: absolute; */
+width: 360px;
+height: 68px;
+left: 105px;
+top: 324px;
+text-align: center;
+font-family: Merriweather;
+font-style: normal;
+font-weight: normal;
+font-size: 35px;
+line-height: 44px;
+
+color: #393EAC;
+}
