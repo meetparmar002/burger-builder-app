@@ -8,7 +8,7 @@ export default function buildControl(props) {
             <button 
             className={classes.Less} 
             onClick={()=>props.rmvIngredient(props.type)}
-            disabled={props.disabled}>Less</button>
+            disabled={props.ing[props.type]===0}>Less</button>
             <button 
             className={classes.More} 
             onClick={()=>props.addIngredient(props.type)}>More</button>

@@ -12,18 +12,21 @@ export default function buildControls(props) {
     return (
         <div className={classes.BuildControls}>
             <p className={classes.Price}>Total Price: <strong>&#x20b9;{props.price}</strong></p>
+            {console.log('buildControls purchaseble: ',props.isPurchasable)}
             {controls.map(cntr=>{
                 return <BuildControl 
+                    ing={props.ing}
                     key={cntr.label} 
                     label={cntr.label} 
                     type={cntr.type} 
                     addIngredient={props.addIngredient}
                     rmvIngredient={props.rmvIngredient}
-                    disabled={props.disabledInfo[cntr.type]}
+                    disabled={props.isPurchasable}
+                    purchaseHanlder={props.purchasableHanlder}
                 />
             })}
-            <button className={classes.Rmvall} onClick={props.rmvall}>Remove All</button>
-            <button className={classes.OrderButton} disabled={props.purchasable}>ORFER NOW</button>
+            <button className={classes.Rmvall} onClick={props.rmvall} disabled={!props.isPurchasable}>Remove All</button>
+            <button className={classes.OrderButton} disabled={!props.isPurchasable}>ORFER NOW</button>
         </div>
     )
 }

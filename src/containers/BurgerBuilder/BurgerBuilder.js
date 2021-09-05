@@ -21,6 +21,14 @@ class BurgerBuilder extends Component {
         purchasable:false
     }
 
+    updatePurchaseState=(ingredients)=>{
+        const sum=Object.keys(ingredients).map(
+            (key)=>ingredients[key]
+        ).reduce(
+            (sum,el)=>sum+el
+        ,0);
+        this.setState({purchasable:sum>0});
+    }
     addIngredientHandler=(type)=>{
         const newCount=this.state.ingredients[type]+1;
         const newIngredients={
@@ -33,6 +41,7 @@ class BurgerBuilder extends Component {
             ingredients:newIngredients,
             totalPrice:newPrice
         });
+        this.updatePurchaseState(newIngredients);
     }
 
     rmvIngredientHandler=type=>{
@@ -47,6 +56,7 @@ class BurgerBuilder extends Component {
             ingredients:newIngredients,
             totalPrice:newPrice
         });
+        this.updatePurchaseState(newIngredients);
     }
 
     rmvAllHaldler=()=>{
@@ -57,27 +67,11 @@ class BurgerBuilder extends Component {
             newIngredients[key]=0;
         this.setState({
             ingredients:newIngredients,
-            totalPrice:10
+            totalPrice:10,
+            purchasable:false
         })
     }
 
-    checkOrder=()=>{
-        // let sum=0;
-        // for(let key in this.state.ingredients)
-        //     sum+=this.state.ingredients[key];
-        const sum=Object.keys(this.state.ingredients).map(
-            key=>{
-                return this.state.ingredients[key];
-            }
-        ).reduce(
-            (sum,el)=>{
-                return sum+el;
-            }
-        ,0)
-        this.setState({
-            purchasable:sum>0
-        })
-    }
     render() {
         const disabledInfo={
             ...this.state.ingredient
@@ -85,16 +79,21 @@ class BurgerBuilder extends Component {
         for(let key in disabledInfo)
             disabledInfo[key]=disabledInfo[key]<=0;
         console.log(disabledInfo);
+        console.log("addIngredientHandler totalProce: ",this.state.totalPrice);
+        console.log('updatePusrchaseState purchase: ',this.state.purchasable);
         return (
             <Aux>
+                
                 <Burger ingredients={this.state.ingredients}/>
                 <BuildControls 
-                addIngredient={this.addIngredientHandler} 
-                rmvIngredient={this.rmvIngredientHandler}
-                disabledInfo={disabledInfo}
-                price={this.state.totalPrice}
-                rmvall={this.rmvAllHaldler}
-                purchasable={!this.purchasable}/>
+                    ing={this.state.ingredients}
+                    addIngredient={this.addIngredientHandler} 
+                    rmvIngredient={this.rmvIngredientHandler}
+                    disabledInfo={disabledInfo}
+                    price={this.state.totalPrice}
+                    rmvall={this.rmvAllHaldler}
+                    isPurchasable={this.state.purchasable}
+                />
                 
             </Aux>
         );
